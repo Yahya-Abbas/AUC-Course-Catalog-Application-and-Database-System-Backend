@@ -1,0 +1,63 @@
+<h1>ADD To Your Course History</h1>
+{% if error %}
+    <p><strong>Error:</strong> {{ error }}
+{% endif %}
+
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+          {{ message }}
+          <br><br>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+
+<form   method="POST" action="">
+    Department 
+    <input type="text" name="dept_code" list="department_codes" required="1" placeholder="Choose Department Code"/>
+    <datalist id="department_codes">
+        {% for department in departments %}
+            <option>{{department[0]}}</option>
+        {% endfor %}
+    </datalist>
+    <br><br>
+    Old Course Code <input type="text" name="old_course_code" required="1" placeholder="Enter Old Course Code"/>
+    <br><br>
+    New Course Code <input type="text" name="new_course_code" required="1" placeholder="Enter New Course Code"/>
+    <br><br>
+    Letter Grade
+    <input type="text" name="letter_grade" list="letter_grades" required="1" placeholder="Letter grade from below list" pattern="A|A-|B+|B|B-|C+|C|C-|D+|D|F|P|CR"/>
+    <datalist id="letter_grades">
+        <option>A</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B</option>
+        <option>B-</option>
+        <option>C+</option>
+        <option>C</option>
+        <option>C-</option>
+        <option>D+</option>
+        <option>D</option>
+        <option>F</option>
+        <option>P</option>
+        <option>CR</option>
+    </datalist>
+    <br><br>
+    Year <input type="text" name="year" required="1" placeholder="What year did you take this course?"/>
+    <br><br>
+    Semester
+    <input type="text" name="semester" list="semesters" required="1" placeholder="Choose semester from below" pattern="Fall|Winter|Spring|Summer"/>
+    <datalist id="semesters">
+        <option>Fall</option>
+        <option>Winter</option>
+        <option>Spring</option>
+        <option>Summer</option>
+    </datalist>
+    <br><br>
+    <input type="submit" name="add_course_history" value="Add to Course History">
+</form>
+<form method="POST" action="">
+    <input type="submit" name="main_menu" value="Main Menu">
+    <br><br>
+    <input type="submit" name="sign_out" value="Sign Out">
+</form>
