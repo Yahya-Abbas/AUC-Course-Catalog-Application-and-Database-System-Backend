@@ -1,0 +1,39 @@
+<h1>Transcript</h1>
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+          {{ message }}
+          <br><br>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+
+<table border = 1>
+    <tr>
+        <td> Department Code </td>
+        <td> Old Course Code </td>
+        <td> New Course Code </td>
+        <td> Name </td>
+        <td> Letter Grade </td>
+        <td> Year </td>
+        <td> Semester </td>
+      </tr>
+    {% for course in retrieved_courses %}
+    <tr>
+      <td> {{course[0]}} </td>
+      <td> {{course[1]}} </td>
+      <td> {{course[2]}} </td>
+      <td> {{course[3]}} </td>
+      <td> {{course[4]}} </td>
+      <td> {{course[5]}} </td>
+      <td> {{course[6]}} </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+<form   method="POST" action="">
+    <br>
+    <input type="submit" name="main_menu" value="Main Menu">
+    <br><br>
+    <input type="submit" name="sign_out" value="Sign Out">
+</form>

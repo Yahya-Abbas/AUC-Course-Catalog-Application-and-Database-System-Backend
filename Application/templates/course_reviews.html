@@ -1,0 +1,43 @@
+<h1>Course Reviews</h1>
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+          {{ message }}
+          <br><br>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+
+<table border = 1>
+    <tr>
+        <td> Student ID </td>
+        <td> Department Code </td>
+        <td> Old Course Code </td>
+        <td> New Course Code </td>
+        <td> Course Name </td>
+        <td> Rating </td>
+        <td> Review </td>
+        <td> Verified? </td>
+      </tr>
+    {% for course in retrieved_courses %}
+    <tr>
+      <td> {{course[0]}} </td>
+      <td> {{course[1]}} </td>
+      <td> {{course[2]}} </td>
+      <td> {{course[3]}} </td>
+      <td> {{course[4]}} </td>
+      <td> {{course[5]}} </td>
+      <td> {{course[6]}} </td>
+      <td> {{course[7]}} </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+<form   method="POST" action="">
+    <br>
+    <input type="submit" name="course_reviews" value="See Course Reviews">
+    <br><br>
+    <input type="submit" name="main_menu" value="Main Menu">
+    <br><br>
+    <input type="submit" name="sign_out" value="Sign Out">
+</form>

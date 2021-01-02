@@ -1,0 +1,25 @@
+<h1>Sign In</h1>
+{% if error %}
+    <p><strong>Error:</strong> {{ error }}
+{% endif %}
+
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+          {{ message }}
+          <br><br>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+
+<form method="POST" action="">
+    AUC ID <input type="text" name="auc_id" required="1" />
+    <br><br>
+    Password <input type="password" name="password" required="1"/>
+    <br><br>
+    <input type="submit" name="sign_in" value="Sign In">
+</form>
+<form method="POST" action="">
+    Don't have an account?
+    <input type="submit" name="sign_up" value="Sign Up">    
+</form>

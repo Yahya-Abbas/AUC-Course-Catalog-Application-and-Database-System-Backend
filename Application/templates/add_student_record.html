@@ -1,0 +1,30 @@
+<h1>Sign Up</h1>
+{% if error %}
+    <p><strong>Error:</strong> {{ error }}
+{% endif %}
+
+
+<form   method="POST" action="">
+    AUC ID <input type="text" name="auc_id" required="1" pattern="[0-9]{9}" placeholder="Enter your 9 digits ID"/>
+    <br><br>
+    Password <input type="text" name="password" required="1" minlength="8" maxlength="12" placeholder="8-12 characters password"/>
+    <br><br>
+    Student Name <input type="text" name="student_name" required="1" />
+    <br><br>
+    Class Standing
+    <input type="text" name="grade" list="class_standings" required="1" placeholder="Choose standing from below" pattern="Freshman|Sophomore|Junior|Senior|Graduating Senior"/>
+    <datalist id="class_standings">
+        <option>Freshman</option>
+        <option>Sophomore</option>
+        <option>Junior</option>
+        <option>Senior</option>
+        <option>Graduating Senior</option>
+    </datalist>
+    <br><br>
+    GPA <input type="number" name="gpa" required="1" min= "0" max="4" step="0.001"/>
+    <br><br>
+    <input type="submit" name="submit" value="Create Account">  
+</form>
+<form method="POST" action="">
+    <input type="submit" name="home_page" value="Return To Login">  
+</form>

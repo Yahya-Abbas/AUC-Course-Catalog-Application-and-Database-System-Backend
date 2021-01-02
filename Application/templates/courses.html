@@ -1,0 +1,47 @@
+<h1>Course Details</h1>
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+          {{ message }}
+          <br><br>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+
+<table border = 1>
+    <tr>
+        <td> Department Code </td>
+        <td> Old Course Code </td>
+        <td> New Course Code </td>
+        <td> Name </td>
+        <td> Credits </td>
+        <td> Description </td>
+        <td> Notes </td>
+        <td> Cross-Listed Department Code </td>
+        <td> Cross-Listed Old Course Code </td>
+        <td> Cross-Listed New Course Code </td>
+      </tr>
+    {% for course in retrieved_courses %}
+    <tr>
+      <td> {{course[0]}} </td>
+      <td> {{course[1]}} </td>
+      <td> {{course[2]}} </td>
+      <td> {{course[3]}} </td>
+      <td> {{course[4]}} </td>
+      <td> {{course[5]}} </td>
+      <td> {{course[6]}} </td>
+      <td> {{course[7]}} </td>
+      <td> {{course[8]}} </td>
+      <td> {{course[9]}} </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+<form   method="POST" action="">
+    <br>
+    <input type="submit" name="course_info" value="Course Info.">
+    <br><br>
+    <input type="submit" name="main_menu" value="Main Menu">
+    <br><br>
+    <input type="submit" name="sign_out" value="Sign Out">
+</form>

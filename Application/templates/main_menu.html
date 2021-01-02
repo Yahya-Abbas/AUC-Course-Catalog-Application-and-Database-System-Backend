@@ -1,0 +1,25 @@
+<h1>AUC Catalog App</h1>
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+          {{ message }}
+          <br><br>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+
+<form   method="POST" action="">
+     <input type="submit" name="add_review" value="Add Course Review">
+
+     <input type="submit" name="course_reviews" value="See Course Reviews">
+     <br><br>
+     <input type="submit" name="add_course_history" value="Add to Course History">
+
+     <input type="submit" name="view_transcript" value="View Transcript">
+     <br><br>
+     <input type="submit" name="available_courses" value="Available Courses">
+     
+     <input type="submit" name="course_info" value="Course Info.">
+     <br><br>
+     <input type="submit" name="sign_out" value="Sign Out">
+</form>

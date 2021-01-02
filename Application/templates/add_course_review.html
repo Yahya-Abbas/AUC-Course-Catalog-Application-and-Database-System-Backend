@@ -1,0 +1,38 @@
+<h1>Add Course Review</h1>
+{% if error %}
+    <p><strong>Error:</strong> {{ error }}
+{% endif %}
+
+
+<form method="POST" action="">
+    Department Code 
+    <input type="text" name="dept_code" list="department_codes" required="1" />
+    <datalist id="department_codes">
+        {% for department in departments %}
+            <option>{{department[0]}}</option>
+        {% endfor %}
+    </datalist>
+    <br><br>
+    Old Course Code <input type="text" name="old_course_code" required="1" />
+    <br><br>
+    New Course Code <input type="text" name="new_course_code" required="1" />
+    <br><br>
+    Rating
+    <input type="number" name="rating" list="ratings" required="1" min="1" max="5" />
+    <datalist id="ratings">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </datalist>
+    <br><br>
+    Review <input type="text" name="text_review" required="1" />
+    <br><br>
+    <input type="submit" name="submit" value="Add Review">
+</form>
+<form method="POST" action="">
+    <input type="submit" name="main_menu" value="Main Menu">
+    <br><br>
+    <input type="submit" name="sign_out" value="Sign Out">
+</form>
